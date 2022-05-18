@@ -5,10 +5,7 @@ import com.bnta.doctor_patient.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,18 @@ public class DoctorController {
     @Autowired
     DoctorRepository doctorRepository;
 
+    //GET
     @GetMapping
     public ResponseEntity<List<Doctor>> getAllDoctors(){
         return new ResponseEntity<>(doctorRepository.findAll(), HttpStatus.OK);
     }
+
+    //SHOW
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Doctor> getDoctorById(@PathVariable Long id){
+        return new ResponseEntity(doctorRepository.findById(id), HttpStatus.OK);
+    }
+    
+
+
 }
