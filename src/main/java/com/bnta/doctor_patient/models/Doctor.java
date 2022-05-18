@@ -1,5 +1,7 @@
 package com.bnta.doctor_patient.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,8 @@ public class Doctor {
     @Column
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "doctor")
+    @JsonIgnoreProperties({"doctor"})
     private List<Patient> patients;
 
     public Doctor(String name) {
