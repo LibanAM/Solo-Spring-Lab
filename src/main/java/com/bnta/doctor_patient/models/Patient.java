@@ -1,7 +1,7 @@
 package com.bnta.doctor_patient.models;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 public class Patient {
 
@@ -19,8 +19,79 @@ public class Patient {
     private String email;
 
     @Column
-    private List<String> ailments;
+    private Set<String> ailments;
 
     @ManyToOne
     private Doctor doctor;
+
+    public Patient(String name, int age, String email, Set<String> ailments, Doctor doctor) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.ailments = ailments;
+        this.doctor = doctor;
+    }
+
+    public Patient() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Set<String> getAilments() {
+        return ailments;
+    }
+
+    public void setAilments(Set<String> ailments) {
+        this.ailments = ailments;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", email='" + email + '\'' +
+                ", ailments=" + ailments +
+                ", doctor=" + doctor +
+                '}';
+    }
 }
