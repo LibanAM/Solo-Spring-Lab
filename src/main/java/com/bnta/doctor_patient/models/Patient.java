@@ -1,8 +1,13 @@
 package com.bnta.doctor_patient.models;
 
+import org.hibernate.annotations.Columns;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
+@Entity
+@Table(name = "patients")
 public class Patient {
 
     @Id
@@ -19,16 +24,17 @@ public class Patient {
     private String email;
 
     @Column
-    private Set<String> ailments;
+    private String ailment;
 
     @ManyToOne
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    public Patient(String name, int age, String email, Set<String> ailments, Doctor doctor) {
+    public Patient(String name, int age, String email, String ailment, Doctor doctor) {
         this.name = name;
         this.age = age;
         this.email = email;
-        this.ailments = ailments;
+        this.ailment = ailment;
         this.doctor = doctor;
     }
 
@@ -67,12 +73,12 @@ public class Patient {
         this.email = email;
     }
 
-    public Set<String> getAilments() {
-        return ailments;
+    public String getAilment() {
+        return ailment;
     }
 
-    public void setAilments(Set<String> ailments) {
-        this.ailments = ailments;
+    public void setAilment(String ailment) {
+        this.ailment = ailment;
     }
 
     public Doctor getDoctor() {
@@ -90,7 +96,7 @@ public class Patient {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
-                ", ailments=" + ailments +
+                ", ailment='" + ailment + '\'' +
                 ", doctor=" + doctor +
                 '}';
     }
