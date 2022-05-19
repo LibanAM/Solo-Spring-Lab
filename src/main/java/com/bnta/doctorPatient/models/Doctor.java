@@ -1,4 +1,4 @@
-package com.bnta.doctor_patient.models;
+package com.bnta.doctorPatient.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

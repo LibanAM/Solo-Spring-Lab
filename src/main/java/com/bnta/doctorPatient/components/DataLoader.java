@@ -1,9 +1,9 @@
-package com.bnta.doctor_patient.components;
+package com.bnta.doctorPatient.components;
 
-import com.bnta.doctor_patient.models.Doctor;
-import com.bnta.doctor_patient.models.Patient;
-import com.bnta.doctor_patient.repositories.DoctorRepository;
-import com.bnta.doctor_patient.repositories.PatientRepository;
+import com.bnta.doctorPatient.models.Doctor;
+import com.bnta.doctorPatient.models.Patient;
+import com.bnta.doctorPatient.repositories.DoctorRepository;
+import com.bnta.doctorPatient.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -19,6 +19,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     PatientRepository patientRepository;
+
+    public DataLoader(){
+    }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {

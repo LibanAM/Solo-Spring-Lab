@@ -1,14 +1,12 @@
-package com.bnta.doctor_patient.controllers;
+package com.bnta.doctorPatient.controllers;
 
-import com.bnta.doctor_patient.models.Doctor;
-import com.bnta.doctor_patient.models.Patient;
-import com.bnta.doctor_patient.repositories.DoctorRepository;
+import com.bnta.doctorPatient.models.Doctor;
+import com.bnta.doctorPatient.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
 import java.util.List;
 
 @RestController
@@ -41,6 +39,7 @@ public class DoctorController {
     }
 
     // DELETE
+    // must remove associated patients first
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Long> deleteDoctor(@PathVariable Long id) {
         doctorRepository.deleteById(id);

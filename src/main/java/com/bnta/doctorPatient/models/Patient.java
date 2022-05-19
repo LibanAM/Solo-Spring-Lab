@@ -1,11 +1,8 @@
-package com.bnta.doctor_patient.models;
+package com.bnta.doctorPatient.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Columns;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "patients")
@@ -29,7 +26,6 @@ public class Patient {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false)
-    @JsonIgnoreProperties({"doctor"})
     private Doctor doctor;
 
     public Patient(String name, int age, String email, String ailment, Doctor doctor) {

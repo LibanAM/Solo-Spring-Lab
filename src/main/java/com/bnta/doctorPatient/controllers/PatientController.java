@@ -1,18 +1,13 @@
-package com.bnta.doctor_patient.controllers;
+package com.bnta.doctorPatient.controllers;
 
-import com.bnta.doctor_patient.models.Doctor;
-import com.bnta.doctor_patient.models.Patient;
-import com.bnta.doctor_patient.repositories.PatientRepository;
+import com.bnta.doctorPatient.models.Patient;
+import com.bnta.doctorPatient.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.exact;
 
 @RestController
 @RequestMapping("patient")

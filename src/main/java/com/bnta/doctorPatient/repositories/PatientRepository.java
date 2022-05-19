@@ -1,12 +1,9 @@
-package com.bnta.doctor_patient.repositories;
+package com.bnta.doctorPatient.repositories;
 
-import com.bnta.doctor_patient.models.Patient;
-import org.springframework.data.domain.Example;
+import com.bnta.doctorPatient.models.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.HttpStatus;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
