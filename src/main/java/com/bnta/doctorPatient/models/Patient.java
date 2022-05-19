@@ -95,6 +95,7 @@ public class Patient {
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", ailment='" + ailment + '\'' +
+                ", doctor=" + doctor +
                 '}';
     }
 }

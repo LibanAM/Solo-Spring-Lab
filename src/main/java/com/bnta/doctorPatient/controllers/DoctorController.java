@@ -18,7 +18,7 @@ public class DoctorController {
 
     //GET & QUERY
     @GetMapping
-    public ResponseEntity<List<Doctor>> getAllDoctorsAndFilters(@RequestParam(required = false, name = "docname") String docname){
+    public ResponseEntity<List<Doctor>> getAllDoctorsAndFilters(@RequestParam(required = false, name = "name") String docname){
         if (docname != null){
             return new ResponseEntity(doctorRepository.findByName(docname), HttpStatus.OK);
         }
