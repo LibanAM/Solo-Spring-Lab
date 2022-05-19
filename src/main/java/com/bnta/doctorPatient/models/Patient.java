@@ -26,6 +26,7 @@ public class Patient {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false)
+    @JsonIgnoreProperties({"patients"})
     private Doctor doctor;
 
     public Patient(String name, int age, String email, String ailment, Doctor doctor) {

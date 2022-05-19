@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
-    void deleteById(Long id);
     List<Patient> findByAgeGreaterThan(int age);
     List<Patient> findByAilment(String ailment);
     List<Patient> findByAgeGreaterThanAndAilment(int age, String ailment);
