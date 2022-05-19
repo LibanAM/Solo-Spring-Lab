@@ -27,6 +27,11 @@ class DoctorPatientApplicationTests {
 	}
 
 	@Test
+	void canFindPatientByAgeGreaterThanAndAilment(){
+		List<Patient> found = patientRepository.findByAgeGreaterThanAndAilment(20, "Broken-foot");
+		assertThat(found.size()).isEqualTo(2);
+	}
+	@Test
 	void canFindPatientByAgeGreaterThan(){
 		List<Patient> found = patientRepository.findByAgeGreaterThan(55);
 		assertThat(found.size()).isEqualTo(2);
@@ -35,7 +40,7 @@ class DoctorPatientApplicationTests {
 	@Test
 	void canFindPatientByAilment(){
 		List<Patient> found = patientRepository.findByAilment("Broken-foot");
-		assertThat(found.size()).isEqualTo(1);
+		assertThat(found.size()).isEqualTo(2);
 	}
 
 	@Test

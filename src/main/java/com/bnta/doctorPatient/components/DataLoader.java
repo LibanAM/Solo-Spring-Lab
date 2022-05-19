@@ -35,7 +35,7 @@ public class DataLoader implements ApplicationRunner {
         Patient patient3 = new Patient("Mike Myers", 58, "halloween1978@outlook.com", "Persistent-cough", doctor1);
         Patient patient4 = new Patient("Jason Voorhees", 75, "jvoorhees@yahoo.com", "Crippling-migraines", doctor2);
         Patient patient5 = new Patient("Chucky Ray", 19, "chuckythedoll@aol.com", "Sprained-ankle", doctor2);
-        Patient patient6 = new Patient("Barack Obama", 44, "POTUS44@aol.com", "Back-pain", doctor3);
+        Patient patient6 = new Patient("Barack Obama", 44, "POTUS44@aol.com", "Broken-foot", doctor3);
         patientRepository.saveAll(Arrays.asList(patient1, patient2, patient3, patient4, patient5, patient6));
 
     }

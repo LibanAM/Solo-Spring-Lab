@@ -21,11 +21,14 @@ public class PatientController {
     public ResponseEntity<List<Patient>> getAllPatientsAndFilters(@RequestParam(required = false, name = "age") Integer age,
                                                                   @RequestParam(required = false, name = "ailment") String ailment) {
 
-        if (age != null) {
-            return new ResponseEntity(patientRepository.findByAgeGreaterThan(age), HttpStatus.OK);
+        if (age != null && ailment != null) {
+            return new ResponseEntity(patientRepository.findByAgeGreaterThanAndAilment(age, ailment), HttpStatus.OK);
         }
-        if (ailment != null) {
+        if (ailment != null && age == null) {
             return new ResponseEntity<>(patientRepository.findByAilment(ailment), HttpStatus.OK);
+        }
+        if (age != null && ailment == null){
+            return new ResponseEntity<>(patientRepository.findByAgeGreaterThan(age), HttpStatus.OK);
         }
         return new ResponseEntity<>(patientRepository.findAll(), HttpStatus.OK);
     }
