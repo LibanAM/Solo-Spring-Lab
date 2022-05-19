@@ -1,5 +1,6 @@
 package com.bnta.doctor_patient.controllers;
 
+import com.bnta.doctor_patient.models.Doctor;
 import com.bnta.doctor_patient.models.Patient;
 import com.bnta.doctor_patient.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,21 @@ public class PatientController {
     @Autowired
     PatientRepository patientRepository;
 
-    //GET
+//    //GET
+//    @GetMapping
+//    public ResponseEntity<List<Patient>> getAllPatients(){
+//        return new ResponseEntity<>(patientRepository.findAll(), HttpStatus.OK);
+//    }
+
+    //QUERY
     @GetMapping
-    public ResponseEntity<List<Patient>> getAllPatients(){
+    public ResponseEntity<List<Patient>> getAllPatientsAndFilters(@RequestParam(required = false, name = "age") Integer age,
+                                                                  @RequestParam(required = false, name = "ailment") String ailment){
+        if (age != null){
+            return new ResponseEntity<>(patientRepository.findByAgeGreaterThan(age), HttpStatus.OK);
+        } else if (ailment != null){
+            return new ResponseEntity<>(patientRepository.findByAilment(ailment), HttpStatus.OK);
+        }
         return new ResponseEntity<>(patientRepository.findAll(), HttpStatus.OK);
     }
 
