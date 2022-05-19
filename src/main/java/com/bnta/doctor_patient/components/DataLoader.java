@@ -22,9 +22,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Doctor doctor1 = new Doctor("Dr.John");
-        Doctor doctor2 = new Doctor("Dr.Amy");
-        Doctor doctor3 = new Doctor("Dr.Andy");
+        Doctor doctor1 = new Doctor("Fred");
+        Doctor doctor2 = new Doctor("Anna");
+        Doctor doctor3 = new Doctor("Emily");
         doctorRepository.saveAll(Arrays.asList(doctor1, doctor2, doctor3));
 
         Patient patient1 = new Patient("John Doe", 27, "johndoe27@gmail.com", "Broken-foot", doctor1);

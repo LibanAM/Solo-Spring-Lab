@@ -1,6 +1,7 @@
 package com.bnta.doctor_patient.repositories;
 
 import com.bnta.doctor_patient.models.Patient;
+import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 
@@ -12,4 +13,6 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     void deleteById(Long id);
     List<Patient> findByAgeGreaterThan(int age);
     List<Patient> findByAilment(String ailment);
+
+
 }

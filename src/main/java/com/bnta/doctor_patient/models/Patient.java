@@ -29,7 +29,7 @@ public class Patient {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", nullable = false)
-    @JsonIgnoreProperties("doctor")
+    @JsonIgnoreProperties({"doctor"})
     private Doctor doctor;
 
     public Patient(String name, int age, String email, String ailment, Doctor doctor) {
@@ -99,7 +99,6 @@ public class Patient {
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 ", ailment='" + ailment + '\'' +
-                ", doctor=" + doctor +
                 '}';
     }
 }

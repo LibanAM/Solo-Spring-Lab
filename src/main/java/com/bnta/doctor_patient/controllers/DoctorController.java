@@ -18,9 +18,12 @@ public class DoctorController {
     @Autowired
     DoctorRepository doctorRepository;
 
-    //GET
+    //GET & QUERY
     @GetMapping
-    public ResponseEntity<List<Doctor>> getAllDoctors(){
+    public ResponseEntity<List<Doctor>> getAllDoctorsAndFilters(@RequestParam(required = false, name = "docname") String docname){
+        if (docname != null){
+            return new ResponseEntity(doctorRepository.findByName(docname), HttpStatus.OK);
+        }
         return new ResponseEntity<>(doctorRepository.findAll(), HttpStatus.OK);
     }
 
