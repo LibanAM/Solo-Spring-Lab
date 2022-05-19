@@ -22,10 +22,21 @@ public class PatientController {
         return new ResponseEntity<>(patientRepository.findAll(), HttpStatus.OK);
     }
 
+    //SHOW
+    @GetMapping("/{id}")
+    public ResponseEntity<Patient> getPatientById(@PathVariable Long id){
+        return new ResponseEntity(patientRepository.findById(id), HttpStatus.OK);
+    }
 
+    //POST
+    @PostMapping("/new")
+    public ResponseEntity<Patient> createPatient(@RequestBody Patient newPatient){
+        Patient patient = patientRepository.save(newPatient);
+        return new ResponseEntity<>(patient, HttpStatus.CREATED);
+    }
 
     // DELETE
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/remove/{id}")
     public ResponseEntity<Long> deletePatient(@PathVariable Long id) {
         patientRepository.deleteById(id);
         return new ResponseEntity<>(id, HttpStatus.NOT_FOUND);
